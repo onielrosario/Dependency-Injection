@@ -9,6 +9,8 @@
 import UIKit
 
 
+
+
 class MainViewController: UIViewController {
     let mainview = MainView()
     
@@ -24,7 +26,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: MainViewDelegate {
     func seguePressed() {
-   
+   let detail = DetailViewcontroller.init(message: mainview.textField.text ?? "No Text")
+        navigationController?.pushViewController(detail, animated: true)
     }
     
 
