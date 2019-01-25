@@ -10,11 +10,21 @@ import UIKit
 
 
 class MainViewController: UIViewController {
+    let mainview = MainView()
+    
+    
+    override func viewDidLoad() {
+        self.view.addSubview(mainview)
+        mainview.mainViewDelegate = self
+    }
     
     
     
-    
-    
+}
+
+extension MainViewController: MainViewDelegate {
+    func seguePressed() {
+    }
     
     
 }
