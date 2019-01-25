@@ -12,4 +12,24 @@ import UIKit
 
 class DetailView: UIView {
     
+    lazy var textLabel: UILabel = {
+       let label = UILabel()
+        
+        
+        return label
+    }()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -17,6 +17,14 @@ protocol MainViewDelegate: AnyObject {
 class MainView: UIView {
     weak var mainViewDelegate: MainViewDelegate?
     
+    lazy var textField: UITextField = {
+        let myTextField = UITextField()
+        myTextField.backgroundColor = .blue
+        myTextField.textColor = .white
+        myTextField.textAlignment = .center
+        return myTextField
+    }()
+    
     lazy var mainButton: UIButton = {
         let button = UIButton()
         button.setTitle("segue", for: .normal)
@@ -34,6 +42,7 @@ class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         addSubview(mainButton)
+        addSubview(textField)
         backgroundColor = .white
         setConstrains()
     }
@@ -47,6 +56,16 @@ class MainView: UIView {
         mainButton.translatesAutoresizingMaskIntoConstraints = false
         mainButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         mainButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        
+        //textfeild constrains
+        textField.layer.cornerRadius = 5
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.centerXAnchor.constraint(equalTo: mainButton.centerXAnchor).isActive = true
+        textField.bottomAnchor.constraint(equalTo: mainButton.topAnchor, constant: -20).isActive = true
+        textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40).isActive = true
+        textField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
     }
     
